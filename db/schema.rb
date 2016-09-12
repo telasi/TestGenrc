@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723200519) do
+ActiveRecord::Schema.define(version: 20160912120545) do
+
+  create_table "cr_outages", force: :cascade do |t|
+    t.string   "disabling_area"
+    t.integer  "break_reason",                 precision: 38
+    t.integer  "break_type",                   precision: 38
+    t.integer  "abonent_amount",               precision: 38
+    t.integer  "disabling_consumer_count",     precision: 38
+    t.integer  "JIT_switch_on_consumer_count", precision: 38
+    t.datetime "break_start_date"
+    t.datetime "break_start_time"
+    t.string   "info_url"
+    t.binary   "attach_2_1"
+    t.binary   "attach_2_2"
+    t.string   "record_status"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
 
   create_table "docflow", force: :cascade do |t|
     t.integer  "docid",             precision: 38
@@ -44,10 +61,28 @@ ActiveRecord::Schema.define(version: 20160723200519) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "pl_outages", force: :cascade do |t|
+    t.string   "disabling_area"
+    t.string   "break_reason"
+    t.datetime "break_start_date"
+    t.datetime "break_end_date"
+    t.integer  "disabling_consumer_count",       precision: 38
+    t.integer  "abonent_amount",                 precision: 38
+    t.integer  "JIT_infromation_consumer_count", precision: 38
+    t.string   "info_url"
+    t.binary   "attach_1_1"
+    t.binary   "attach_1_2"
+    t.binary   "attach_1_4"
+    t.string   "record_status"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
   create_table "queue", force: :cascade do |t|
     t.string   "service"
     t.integer  "service_id", precision: 38
     t.integer  "stage",      precision: 38
+    t.datetime "sent_at"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
