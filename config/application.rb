@@ -19,6 +19,7 @@ module Gnerc
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
     config.time_zone = 'Asia/Tbilisi'
+    # config.active_record.default_timezone = :local #damatebulia bacho
 
     config.autoload_paths += %W(#{config.root}/app/workers)
     config.eager_load_paths += %W(#{config.root}/app/workers) # this is for Sidekiq

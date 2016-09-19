@@ -8,7 +8,7 @@ class CreatePlOutage < ActiveRecord::Migration
 	 t.datetime :break_end_date
 	 t.integer :disabling_consumer_count
 	 t.integer :abonent_amount
-     t.integer :JIT_infromation_consumer_count
+     t.integer :jit_infromation_consumer_count
      t.string :info_url
      t.binary :attach_1_1
      t.binary :attach_1_2
