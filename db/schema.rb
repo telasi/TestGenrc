@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916072339) do
+ActiveRecord::Schema.define(version: 20160927060935) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
     t.integer  "break_type",                   precision: 38
     t.integer  "abonent_amount",               precision: 38
     t.integer  "disabling_consumer_count",     precision: 38
-    t.integer  "JIT_switch_on_consumer_count", precision: 38
+    t.integer  "jit_switch_on_consumer_count", precision: 38
     t.datetime "break_start_date"
     t.datetime "break_start_time"
     t.string   "info_url"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20160916072339) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.binary   "disabling_area"
+    t.integer  "response_id",                  precision: 38
+    t.datetime "log_day"
   end
 
   create_table "docflow", force: :cascade do |t|
@@ -42,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160916072339) do
     t.binary   "attach_5_1"
     t.binary   "attach_5_2"
     t.binary   "attach_5_3"
-    t.integer  "case_id",           precision: 38
+    t.integer  "response_id",       precision: 38
     t.integer  "stage",             precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160916072339) do
     t.datetime "updated_at",                                    null: false
     t.datetime "log_day"
     t.binary   "disabling_area"
+    t.integer  "response_id",                    precision: 38
   end
 
   create_table "queue", force: :cascade do |t|

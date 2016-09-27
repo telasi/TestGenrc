@@ -7,7 +7,7 @@ class Sender
   	obj = clazz.find(id)
   	result = Client.send(obj)
   	if result && result.key?('result') && result['result'] == "OK"
-  		obj.touch(case_id: result['id']) 
+  		obj.touch(response_id: result['id']) 
   		Log.create!(service: classname, service_id: id, action: 'send', success: 1, error: nil)
   	elsif result && result.key?('error')
   		raise Exception.new(result['message'])

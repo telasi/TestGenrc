@@ -11,9 +11,9 @@ class QueueProcessor
     clazz = item.service.constantize
     clazz.connection
     obj = clazz.find(item.service_id)
-    result = Client.send(obj)
+    result = Client.send_b(obj)
     if result && result.key?('result') && result['result'] == "OK"
-      obj.update_attributes!(case_id: result['id']) 
+      obj.update_attributes!(response_id: result['id']) 
       item.update_attributes(sent_at: Time.now)
       Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 1, error: nil)
     elsif result && result.key?('error')

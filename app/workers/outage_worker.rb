@@ -2,7 +2,7 @@ class OutageWorker
   include Sidekiq::Worker
 
   def perform
-    OutageWorker.fill_outage_pl(Date.now)
+    OutageWorker.fill_outage_pl(Date.today)
   end
 
 
@@ -16,10 +16,10 @@ class OutageWorker
 	puts c_date
 	puts date	   
 	puts "///////////////////// START WORKER ///////////////////////"
- 	outagelog = OutageLog.where(log_day: c_date)
+ 	outagelog = OutageLog.where(log_day: c_date).where(outage_type: 'Planned')
             
  	if   !outagelog.nil?
- 		outage_base_id =  OutageLog.select(:outage_base_id , :break_start_date , :break_end_date).where(log_day: date).distinct
+ 		outage_base_id =  OutageLog.select(:outage_base_id , :break_start_date , :break_end_date).where(log_day: date).where(outage_type: 'Planned').distinct
 
         outage_base_id.each do |bid|
  		     puts "///////////////////// SHOW BASE ID ///////////////////////" 
@@ -28,7 +28,7 @@ class OutageWorker
   		     puts bid.break_end_date 
  		     puts "///////////////////// " 	
         	 # gatishuli abonentebis raodenoba	
-        	 outagelog2=OutageLog.where(log_day: date).where(outage_base_id:  bid.outage_base_id)
+        	 outagelog2=OutageLog.where(log_day: date).where(outage_base_id:  bid.outage_base_id).where(outage_type: 'Planned')
 	         cust_n=outagelog2.distinct.count(:custkey_customer) 
  		     puts "///////////////////// SHOW CUST N ///////////////////////" 
              puts cust_n
@@ -62,7 +62,7 @@ class OutageWorker
                  outgnew.log_day = date.in_time_zone("UTC")    #in_time_zone("Tbilisi").strftime("%d%b%Y")
                outgnew.save!
 
-
+              SendQueue.create(service: 'PlOutage', service_id: outgnew.id )
 
 
              end
@@ -71,30 +71,10 @@ class OutageWorker
 
     end
 
-  def to_hash
-  			fields = [  :break_reason,
-					    :break_start_date,
-					    :break_end_date,
-					    :disabling_consumer_count,
-					    :abonent_amount,
-					    :jit_infromation_consumer_count,
-					    :info_url,
-					    :attach_1_1,
-					    :attach_1_2,
-					    :attach_1_4,
-					    :disabling_area]
-
-  	self.serializable_hash(only: fields)
-  end
-
-
-
-
-
-  end  # self.fill_outage_pl(c_date)	              
+  end  # self.fill_outage_pl(c_date)	
 
 end	 # class OutageWorker
 
 
 
-Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: '0 0 * * *', class: 'OutageWorker')
+Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: ' 30 09 * * *', class: 'OutageWorker')
