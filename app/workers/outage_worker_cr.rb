@@ -60,8 +60,8 @@ puts "///////////////////// 1 ///////////////////////"
                  outgnew.abonent_amount = cust_n
                  outgnew.disabling_consumer_count = cust_n
                  outgnew.jit_switch_on_consumer_count = cust_n
-				         outgnew.break_start_date = bid.break_start_date.date.in_time_zone("UTC").strftime("%d-%b-%y")
-				         outgnew.break_start_time = bid.break_start_date.date.in_time_zone("UTC").strftime("%H-%M-%S")
+				         outgnew.break_start_date = bid.break_start_date.in_time_zone("UTC") #.strftime("%d-%b-%y")
+				         outgnew.break_start_time = bid.break_start_date.in_time_zone("UTC") #.strftime("%H-%M-%S")
 				         outgnew.info_url='news.ge'
 			           outgnew.attach_2_1  = '2_1'
 			           outgnew.attach_2_2  = '2_2'
@@ -92,4 +92,4 @@ end	 # class OutageWorker
 
 
 
-Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: ' 45 * * * *', class: 'OutageWorker')
+Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: ' 35 * * * *', class: 'OutageWorker')
