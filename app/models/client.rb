@@ -31,7 +31,7 @@ class Client
                                    case_id:   object.class::CASE_ID })
 
 
-      query_params = query_params.merge!({ "#{case_detail}": object[:response_id] })
+      query_params = query_params.merge!({ "#{case_detail}" => object[:response_id] })
       url = PHASE2_URL
     else
       checkcode = Digest::MD5.hexdigest( [Config::USERNAME, 
@@ -77,8 +77,17 @@ class Client
    copmanyid = Config::COMPANYID
    case_id = object.class::CASE_ID
 
+   general_parameters = "?username=#{username}&password=#{password}&checkcode=#{checkcode}&copmanyid=#{copmanyid}&microtime=#{microtime}&case_id=#{case_id}"
 
-    uri = URI.parse("http://gnerc.org/cportal/public/api/v1/getlist?username=#{username}&password=#{password}&checkcode=#{checkcode}&copmanyid=#{copmanyid}&microtime=#{microtime}&case_id=#{case_id}")
+   if object.stage > 1
+    full_uri = base_uri + PHASE2_URL + general_parameters + "&case_details_10#{object.class::CASE_ID}_id=#{object[:response_id]}"
+   else
+    full_uri = base_uri + PHASE1_URL + general_parameters
+   end
+
+   uri = URI.parse(full_uri)
+
+   #uri = URI.parse("http://gnerc.org/cportal/public/api/v1/getlist?username=#{username}&password=#{password}&checkcode=#{checkcode}&copmanyid=#{copmanyid}&microtime=#{microtime}&case_id=#{case_id}")
    
     #response = Net::HTTP.get_response(uri)
       puts "##########1110##########"
