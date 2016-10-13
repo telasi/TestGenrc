@@ -1,0 +1,2 @@
+module PlannedOutagesHelper
+end

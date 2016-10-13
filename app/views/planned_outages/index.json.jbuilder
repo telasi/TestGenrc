@@ -1,0 +1,1 @@
+json.array! @planned_outages, partial: 'planned_outages/planned_outage', as: :planned_outage

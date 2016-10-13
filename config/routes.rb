@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  resources :planned_outages
   mount Sidekiq::Web => '/sidekiq'
 
   wash_out :soap

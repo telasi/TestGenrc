@@ -1,0 +1,2 @@
+json.extract! planned_outage, :id, :disabling_area, :break_reason, :abonent_amount, :self_governed_district_name, :self_governed_district_abonents_count, :jit_infromation_consumer_count, :compare_date_2, :list_of_media, :info_url, :sms, :record_status, :log_day, :response_id, :created_at, :updated_at
+json.url planned_outage_url(planned_outage, format: :json)

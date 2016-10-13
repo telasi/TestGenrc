@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Disabling area:</strong>
+  <%= @planned_outage.disabling_area %>
+</p>
+
+<p>
+  <strong>Break reason:</strong>
+  <%= @planned_outage.break_reason %>
+</p>
+
+<p>
+  <strong>Abonent amount:</strong>
+  <%= @planned_outage.abonent_amount %>
+</p>
+
+<p>
+  <strong>Self governed district name:</strong>
+  <%= @planned_outage.self_governed_district_name %>
+</p>
+
+<p>
+  <strong>Self governed district abonents count:</strong>
+  <%= @planned_outage.self_governed_district_abonents_count %>
+</p>
+
+<p>
+  <strong>Jit infromation consumer count:</strong>
+  <%= @planned_outage.jit_infromation_consumer_count %>
+</p>
+
+<p>
+  <strong>Compare date 2:</strong>
+  <%= @planned_outage.compare_date_2 %>
+</p>
+
+<p>
+  <strong>List of media:</strong>
+  <%= @planned_outage.list_of_media %>
+</p>
+
+<p>
+  <strong>Info url:</strong>
+  <%= @planned_outage.info_url %>
+</p>
+
+<p>
+  <strong>Sms:</strong>
+  <%= @planned_outage.sms %>
+</p>
+
+<p>
+  <strong>Record status:</strong>
+  <%= @planned_outage.record_status %>
+</p>
+
+<p>
+  <strong>Log day:</strong>
+  <%= @planned_outage.log_day %>
+</p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @planned_outage.response_id %>
+</p>
+
+<%= link_to 'Edit', edit_planned_outage_path(@planned_outage) %> |
+<%= link_to 'Back', planned_outages_path %>

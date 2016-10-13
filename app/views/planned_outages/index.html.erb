@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Planned Outages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Disabling area</th>
+      <th>Break reason</th>
+      <th>Abonent amount</th>
+      <th>Self governed district name</th>
+      <th>Self governed district abonents count</th>
+      <th>Jit infromation consumer count</th>
+      <th>Compare date 2</th>
+      <th>List of media</th>
+      <th>Info url</th>
+      <th>Sms</th>
+      <th>Record status</th>
+      <th>Log day</th>
+      <th>Response</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planned_outages.each do |planned_outage| %>
+      <tr>
+        <td><%= planned_outage.disabling_area %></td>
+        <td><%= planned_outage.break_reason %></td>
+        <td><%= planned_outage.abonent_amount %></td>
+        <td><%= planned_outage.self_governed_district_name %></td>
+        <td><%= planned_outage.self_governed_district_abonents_count %></td>
+        <td><%= planned_outage.jit_infromation_consumer_count %></td>
+        <td><%= planned_outage.compare_date_2 %></td>
+        <td><%= planned_outage.list_of_media %></td>
+        <td><%= planned_outage.info_url %></td>
+        <td><%= planned_outage.sms %></td>
+        <td><%= planned_outage.record_status %></td>
+        <td><%= planned_outage.log_day %></td>
+        <td><%= planned_outage.response_id %></td>
+        <td><%= link_to 'Show', planned_outage %></td>
+        <td><%= link_to 'Edit', edit_planned_outage_path(planned_outage) %></td>
+        <td><%= link_to 'Destroy', planned_outage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Planned outage', new_planned_outage_path %>
