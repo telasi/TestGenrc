@@ -1,1 +1,0 @@
-json.partial! "planned_outages/planned_outage", planned_outage: @planned_outage

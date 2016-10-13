@@ -1,9 +1,9 @@
 class OutageWorker
   include Sidekiq::Worker
 
-  def perform
-    OutageWorker.fill_outage_pl(Date.today)
-  end
+  #def perform
+  #  OutageWorker.fill_outage_pl(Date.today)
+  #end
 
 
   def self.fill_outage_pl(c_date)
@@ -77,4 +77,4 @@ end	 # class OutageWorker
 
 
 
-Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: ' 30 09 * * *', class: 'OutageWorker')
+#Sidekiq::Cron::Job.create(name: 'Outage Worker - once a day', cron: ' 30 09 * * *', class: 'OutageWorker')
