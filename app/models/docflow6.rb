@@ -32,8 +32,8 @@ class Docflow6 < ActiveRecord::Base
   def to_hash
   	case self.stage
   		when 1
-  			fields = [:applicant, :abonent_number, :applicant_address,
-  					      :consumer_category, :appeal_date, :attach_6_1]
+  			fields = [:letter_number, :applicant, :abonent_number, :applicant_address,
+  					      :consumer_category, :appeal_date, :assigned_abonent_number, :attach_6_1]
   		when 2
   			fields = [:attach_6_2]
   		when 3
