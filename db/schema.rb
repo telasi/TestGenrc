@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017084202) do
+ActiveRecord::Schema.define(version: 20161017135530) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -163,6 +163,24 @@ ActiveRecord::Schema.define(version: 20161017084202) do
     t.datetime "log_day"
     t.binary   "disabling_area"
     t.integer  "response_id",                    precision: 38
+  end
+
+  create_table "plannedoutages", force: :cascade do |t|
+    t.binary   "disabling_area"
+    t.integer  "break_reason",                   precision: 38
+    t.datetime "break_start_date"
+    t.datetime "break_end_date"
+    t.integer  "abonent_amount",                 precision: 38
+    t.string   "self_governed_district_name"
+    t.string   "self_gov_district_ab_count"
+    t.integer  "jit_infromation_consumer_count", precision: 38
+    t.datetime "compare_date_2"
+    t.string   "list_of_media"
+    t.string   "info_url"
+    t.string   "sms"
+    t.string   "record_status"
+    t.datetime "log_day"
+    t.string   "response_id"
   end
 
   create_table "queue", force: :cascade do |t|
