@@ -1,5 +1,6 @@
 class QueueProcessor
   include Sidekiq::Worker
+  sidekiq_options retry: false
 
   def perform
     SendQueue.not_sent.each do |item|
