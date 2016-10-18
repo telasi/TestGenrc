@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017135530) do
+ActiveRecord::Schema.define(version: 20161018183657) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -97,24 +97,24 @@ ActiveRecord::Schema.define(version: 20161017135530) do
   end
 
   create_table "docflow8", force: :cascade do |t|
-    t.integer  "docid",           precision: 38
-    t.integer  "docyear",         precision: 38
+    t.integer  "docid",             precision: 38
+    t.integer  "docyear",           precision: 38
     t.string   "letter_number"
-    t.integer  "abonent_number",  precision: 38
+    t.integer  "abonent_number",    precision: 38
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "abonent_type",    precision: 38
+    t.integer  "consumer_category", precision: 38
     t.datetime "appeal_date"
-    t.binary   "attach_4_1"
-    t.binary   "attach_4_2"
-    t.binary   "attach_4_3"
-    t.integer  "response_id",     precision: 38
-    t.integer  "stage",           precision: 38
+    t.binary   "attach_8_1"
+    t.binary   "attach_8_2"
+    t.binary   "attach_8_3"
+    t.integer  "response_id",       precision: 38
+    t.integer  "stage",             precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "log", force: :cascade do |t|
