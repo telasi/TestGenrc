@@ -145,6 +145,8 @@ GEM
       sidekiq (>= 4.0.0)
     sidekiq-failures (0.4.5)
       sidekiq (>= 2.16.0)
+    sidekiq-retries (0.4.0)
+      sidekiq (>= 3.2.4)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -197,6 +199,7 @@ DEPENDENCIES
   sidekiq
   sidekiq-cron
   sidekiq-failures
+  sidekiq-retries
   sinatra
   sqlite3
   turbolinks
