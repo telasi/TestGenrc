@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021081757) do
+ActiveRecord::Schema.define(version: 20161021131052) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -183,6 +183,7 @@ ActiveRecord::Schema.define(version: 20161021081757) do
     t.string   "response_id"
     t.string   "outg_base_description"
     t.string   "outg_comment"
+    t.decimal  "outg_base_id"
   end
 
   create_table "queue", force: :cascade do |t|
