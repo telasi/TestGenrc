@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021131052) do
+ActiveRecord::Schema.define(version: 20161024113437) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(version: 20161021131052) do
     t.binary   "disabling_area"
     t.integer  "response_id",                  precision: 38
     t.datetime "log_day"
+  end
+
+  create_table "cutter", force: :cascade do |t|
+    t.integer  "transaction_number", precision: 38
+    t.integer  "abonent_number",     precision: 38
+    t.string   "abonent"
+    t.string   "abonent_address"
+    t.integer  "abonent_type",       precision: 38
+    t.datetime "arrear_date"
+    t.binary   "attach_3_1"
+    t.binary   "attach_3_2"
+    t.binary   "attach_3_3"
+    t.integer  "response_id",        precision: 38
+    t.integer  "stage",              precision: 38
+    t.datetime "stage_1_date"
+    t.datetime "stage_2_date"
+    t.datetime "stage_3_date"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "docflow4", force: :cascade do |t|
