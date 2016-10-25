@@ -1,5 +1,5 @@
 class OutageWorker
-  include Sidekiq::Worker
+  #include Sidekiq::Worker
 
   #def perform
    # OutageWorker.fill_outage_cr(Date.today)

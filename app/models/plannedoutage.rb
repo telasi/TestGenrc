@@ -1,36 +1,32 @@
 class Plannedoutage < ActiveRecord::Base
-	self.table_name='plannedoutages'
-  CASE_ID = 1
 
+  self.table_name='plannedoutages'
+  CASE_ID = 1
+ 
   def to_hash
 
-            fields = [
-						#{}"id",
-						"disabling_area",
-						"break_reason",
-						"break_start_date",
-						"break_end_date",
-						"abonent_amount",
-						"self_governed_district_name",
-						"self_gov_district_ab_count",
-						"jit_infromation_consumer_count",
-						"compare_date_2",
-						"list_of_media",
-						"info_url",
-						"sms"
-						#{}"record_status",
-						#{}"log_day",
-						#{}"response_id",
-						#{}"outg_base_description",
-						#{}"outg_comment",
-						#{}"outg_base_id"
-					 ]
-
-  self.serializable_hash(only: fields).transform_keys {|key| key.gsub("jit_infromation","JIT_infromation").gsub("self_gov_district_ab_count","self_governed_district_abonents_count")}
+  if !self.compare_date_2.nil? 
+  	then compare_date_2=self.compare_date_2.strftime('%Y %m %d %H %M')
   end
 
-  def stage
-	1
+  	case self.stage
+      when 1
+        { 
+          disabling_area:                          self.disabling_area,
+          break_reason:                            self.break_reason, 
+          break_start_date:                        self.break_start_date.strftime('%Y-%m-%d %H:%M'),
+          break_end_date:                          self.break_end_date.strftime('%Y-%m-%d %H:%M'),
+          abonent_amount:                          self.abonent_amount,
+          self_governed_district_name:             self.self_governed_district_name,
+          self_governed_district_abonents_count:   self.self_gov_district_ab_count,
+          JIT_infromation_consumer_count:          self.jit_infromation_consumer_count,          
+          compare_date_2:                               compare_date_2,
+          list_of_media:                           self.list_of_media,
+          info_url:                                self.info_url,
+          sms:                                     self.sms
+        }
+
+    end
   end
 
 end
