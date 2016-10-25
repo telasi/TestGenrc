@@ -3,6 +3,7 @@ class Plannedoutage < ActiveRecord::Base
   CASE_ID = 1
 
   def to_hash
+
             fields = [
 						"id",
 						"disabling_area",
@@ -25,7 +26,7 @@ class Plannedoutage < ActiveRecord::Base
 						"outg_base_id"
 					 ]
 
-  	self.serializable_hash.map{ |k,v| [fields[fields.index{ |s| s.casecmp(k)==0 }] ,v] if fields.any?{ |s| s.casecmp(k)==0 } }.compact.to_h
+  self.serializable_hash.transform_keys {|key| key.gsub("jit_infromation","JIT_infromation").gsub("self_gov_district_ab_count","self_governed_district_abonents_count")}
   end
 
   def stage
