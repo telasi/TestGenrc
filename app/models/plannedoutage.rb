@@ -5,7 +5,7 @@ class Plannedoutage < ActiveRecord::Base
   def to_hash
 
             fields = [
-						"id",
+						#{}"id",
 						"disabling_area",
 						"break_reason",
 						"break_start_date",
@@ -17,16 +17,16 @@ class Plannedoutage < ActiveRecord::Base
 						"compare_date_2",
 						"list_of_media",
 						"info_url",
-						"sms",
-						"record_status",
-						"log_day",
-						"response_id",
-						"outg_base_description",
-						"outg_comment",
-						"outg_base_id"
+						"sms"
+						#{}"record_status",
+						#{}"log_day",
+						#{}"response_id",
+						#{}"outg_base_description",
+						#{}"outg_comment",
+						#{}"outg_base_id"
 					 ]
 
-  self.serializable_hash.transform_keys {|key| key.gsub("jit_infromation","JIT_infromation").gsub("self_gov_district_ab_count","self_governed_district_abonents_count")}
+  self.serializable_hash(only: fields).transform_keys {|key| key.gsub("jit_infromation","JIT_infromation").gsub("self_gov_district_ab_count","self_governed_district_abonents_count")}
   end
 
   def stage
