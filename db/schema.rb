@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025085332) do
+ActiveRecord::Schema.define(version: 20161102062632) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20161025085332) do
     t.binary   "disabling_area"
     t.integer  "response_id",                  precision: 38
     t.datetime "log_day"
+  end
+
+  create_table "crashoutages", force: :cascade do |t|
+    t.binary   "disabling_area"
+    t.integer  "break_reason",                  precision: 38
+    t.integer  "break_type",                    precision: 38
+    t.integer  "abonent_amount",                precision: 38
+    t.datetime "break_start_date"
+    t.datetime "break_start_time"
+    t.integer  "self_governed_district_name",   precision: 38
+    t.integer  "self_gov_district_ab_count",    precision: 38
+    t.datetime "inf_dissemination_actual_date"
+    t.datetime "inf_dissemination_actual_time"
+    t.string   "record_status"
+    t.datetime "log_day"
+    t.string   "response_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cutter", force: :cascade do |t|
@@ -186,13 +204,13 @@ ActiveRecord::Schema.define(version: 20161025085332) do
 
   create_table "plannedoutages", force: :cascade do |t|
     t.binary   "disabling_area"
-    t.integer  "break_reason",                   precision: 38
+    t.integer  "break_reason",                               precision: 38
     t.datetime "break_start_date"
     t.datetime "break_end_date"
-    t.integer  "abonent_amount",                 precision: 38
+    t.integer  "abonent_amount",                             precision: 38
     t.string   "self_governed_district_name"
     t.string   "self_gov_district_ab_count"
-    t.integer  "jit_infromation_consumer_count", precision: 38
+    t.integer  "jit_infromation_consumer_count",             precision: 38
     t.datetime "compare_date_2"
     t.string   "list_of_media"
     t.string   "info_url"
@@ -202,7 +220,7 @@ ActiveRecord::Schema.define(version: 20161025085332) do
     t.string   "response_id"
     t.string   "outg_base_description"
     t.string   "outg_comment"
-    t.decimal  "outg_base_id"
+    t.string   "outg_base_id",                   limit: 500
     t.decimal  "stage"
   end
 

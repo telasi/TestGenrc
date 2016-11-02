@@ -1,6 +1,6 @@
 class Createcrashoutages < ActiveRecord::Migration
   def change
-    create_table :plannedoutages do |t|
+    create_table :crashoutages do |t|
  
        t.binary :disabling_area   
        t.integer :break_reason
@@ -10,8 +10,8 @@ class Createcrashoutages < ActiveRecord::Migration
        t.datetime :break_start_time 
        t.integer :self_governed_district_name 
        t.integer :self_gov_district_ab_count
-       t.datetime :information_dissemination_actual_date
-       t.datetime :information_dissemination_actual_time 
+       t.datetime :inf_dissemination_actual_date
+       t.datetime :inf_dissemination_actual_time 
        t.string :record_status
        t.datetime :log_day
        t.string :response_id
