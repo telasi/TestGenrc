@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20161102062632) do
     t.integer  "abonent_amount",                precision: 38
     t.datetime "break_start_date"
     t.datetime "break_start_time"
-    t.integer  "self_governed_district_name",   precision: 38
+    t.string   "self_governed_district_name"
     t.integer  "self_gov_district_ab_count",    precision: 38
     t.datetime "inf_dissemination_actual_date"
     t.datetime "inf_dissemination_actual_time"

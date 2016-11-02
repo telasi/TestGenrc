@@ -8,7 +8,7 @@ class Createcrashoutages < ActiveRecord::Migration
        t.integer :abonent_amount                 
        t.datetime :break_start_date
        t.datetime :break_start_time 
-       t.integer :self_governed_district_name 
+       t.string :self_governed_district_name 
        t.integer :self_gov_district_ab_count
        t.datetime :inf_dissemination_actual_date
        t.datetime :inf_dissemination_actual_time 
