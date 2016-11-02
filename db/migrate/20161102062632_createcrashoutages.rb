@@ -15,6 +15,10 @@ class Createcrashoutages < ActiveRecord::Migration
        t.string :record_status
        t.datetime :log_day
        t.string :response_id
+	   t.string :outg_base_description
+	   t.string :outg_comment
+	   t.integer :outg_base_id
+	   t.integer :stage
        t.timestamps 
     end  
 

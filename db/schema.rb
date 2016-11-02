@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20161102062632) do
     t.string   "record_status"
     t.datetime "log_day"
     t.string   "response_id"
+    t.string   "outg_base_description"
+    t.string   "outg_comment"
+    t.integer  "outg_base_id",                  precision: 38
+    t.integer  "stage",                         precision: 38
     t.datetime "created_at"
     t.datetime "updated_at"
   end
