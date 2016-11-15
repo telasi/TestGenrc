@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102062632) do
+ActiveRecord::Schema.define(version: 20161115073624) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161102062632) do
     t.integer  "stage",                         precision: 38
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "break_reason_comment"
   end
 
   create_table "cutter", force: :cascade do |t|
@@ -226,6 +227,7 @@ ActiveRecord::Schema.define(version: 20161102062632) do
     t.string   "outg_comment"
     t.string   "outg_base_id",                   limit: 500
     t.decimal  "stage"
+    t.string   "break_reason_comment"
   end
 
   create_table "queue", force: :cascade do |t|
