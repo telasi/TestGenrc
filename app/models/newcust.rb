@@ -7,12 +7,12 @@ class Newcust < ActiveRecord::Base
   def to_hash
   	case self.stage
       when 1
-        fields = [:applicant, :applicant_address, :voltage,
+        fields = [:letter_number, :applicant, :applicant_address, :voltage,
                   :power, :appeal_date, :attach_7_1]
       when 2
-        fields = [:attach_7_2]
+        fields = [:attach_7_2, :attach_7_4]
       when 3
-        fields = [:attach_7_3]
+        fields = [:transaction_number_3, :the_amount_of_compensation]
     end
     self.serializable_hash(only: fields)
   end
