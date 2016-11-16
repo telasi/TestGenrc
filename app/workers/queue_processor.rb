@@ -3,7 +3,7 @@ class QueueProcessor
   sidekiq_options retry: false
 
   def perform
-    SendQueue.not_sent.each do |item|
+    SendQueueV.all.each do |item|
       send_item(item)
     end
   end
@@ -14,8 +14,12 @@ class QueueProcessor
     obj = clazz.find(item.service_id)
     result = Client.send_b(obj)
     if result && result.key?('result') && result['result'] == "OK"
-      obj.update_attributes!(response_id: result['id']) 
-      item.update_attributes(sent_at: Time.now)
+      obj.update_attributes!(response_id: result['id'])
+      ##
+      item2=SendQueue.find_by(id: item.id)
+      item2.update(sent_at: Time.now)
+      item2.save
+      #item.update_attributes(sent_at: Time.now)
       Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 1, error: nil)
     elsif result && result.key?('error')
       raise Exception.new(result['message'])

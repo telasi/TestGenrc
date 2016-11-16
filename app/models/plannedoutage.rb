@@ -23,7 +23,8 @@ class Plannedoutage < ActiveRecord::Base
           compare_date_2:                               compare_date_2,
           list_of_media:                           self.list_of_media,
           info_url:                                self.info_url,
-          sms:                                     self.sms
+          sms:                                     self.sms,
+          break_reason_comment:                    self.break_reason_comment
         }
 
     end
