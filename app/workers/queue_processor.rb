@@ -27,7 +27,7 @@ class QueueProcessor
       raise Exception.new('Unknown error')
     end
   rescue Exception => e
-    Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 0, error: e.message[0..254])
+    Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 0, error: e.message[0..3999])
     raise e
   end
 
