@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116060114) do
+ActiveRecord::Schema.define(version: 20161122054804) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -161,12 +161,12 @@ ActiveRecord::Schema.define(version: 20161116060114) do
 
   create_table "log", force: :cascade do |t|
     t.string   "service"
-    t.integer  "service_id",             precision: 38
+    t.integer  "service_id",              precision: 38
     t.string   "action"
     t.boolean  "success",    limit: nil
-    t.string   "error"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "error",      limit: 4000
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "newcust", force: :cascade do |t|
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 20161116060114) do
     t.string   "applicant"
     t.string   "applicant_address"
     t.string   "voltage"
-    t.float    "power"
+    t.string   "power"
     t.datetime "appeal_date"
     t.binary   "attach_7_1"
     t.binary   "attach_7_2"
