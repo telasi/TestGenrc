@@ -15,7 +15,7 @@ class Cutter < ActiveRecord::Base
           arrear_time:        self.arrear_date.strftime('%H:%M'),
           transaction_number: self.transaction_number }
       when 2
-        { attach_3_2: self.attach_3_2 }
+        { transaction_number_2: self.transaction_number_2 }
       when 3
         { attach_3_3: self.attach_3_3 }
     end

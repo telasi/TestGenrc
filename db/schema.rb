@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122054804) do
+ActiveRecord::Schema.define(version: 20161128124900) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -56,22 +56,24 @@ ActiveRecord::Schema.define(version: 20161122054804) do
   end
 
   create_table "cutter", force: :cascade do |t|
-    t.integer  "transaction_number",            precision: 38
-    t.string   "abonent_number",     limit: 20
+    t.integer  "transaction_number",              precision: 38
+    t.string   "abonent_number",       limit: 20
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "abonent_type",                  precision: 38
+    t.integer  "abonent_type",                    precision: 38
     t.datetime "arrear_date"
     t.binary   "attach_3_1"
     t.binary   "attach_3_2"
     t.binary   "attach_3_3"
-    t.integer  "response_id",                   precision: 38
-    t.integer  "stage",                         precision: 38
+    t.integer  "response_id",                     precision: 38
+    t.integer  "stage",                           precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "cutgroup",             limit: 12, precision: 12
+    t.string   "transaction_number_2"
   end
 
   create_table "docflow4", force: :cascade do |t|
@@ -189,6 +191,22 @@ ActiveRecord::Schema.define(version: 20161122054804) do
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
     t.binary   "attach_7_4"
+  end
+
+  create_table "pallnedoutage2s", force: :cascade do |t|
+    t.datetime "break_start_actual_date"
+    t.datetime "break_end_actual_date"
+    t.integer  "disabling_consumer_count", limit: 10, precision: 10
+    t.string   "ransaction_number_4",      limit: 10
+    t.string   "ransaction_number_5",      limit: 10
+    t.text     "postponed_suspend"
+    t.string   "record_status",            limit: 10
+    t.datetime "log_day"
+    t.string   "outg_base_id",             limit: 10
+    t.integer  "stage",                               precision: 38
+    t.string   "outg_comment"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "pl_outages", force: :cascade do |t|
