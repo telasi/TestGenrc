@@ -118,9 +118,13 @@ class Client
     puts response.message    
     puts response.body
 
-    answer = JSON.parse(response.body)
-    answer
+    begin
+      answer = JSON.parse(response.body)
+    rescue
 
+    ensure
+      answer
+    end
   end
 
 
