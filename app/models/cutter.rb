@@ -11,8 +11,8 @@ class Cutter < ActiveRecord::Base
           abonent:            self.abonent.bs_str_to_ka, 
           abonent_type:       self.abonent_type,
           abonent_address:    self.abonent_address.bs_str_to_ka,
-          arrear_date:        self.arrear_date.strftime('%Y-%m-%d'),
-          arrear_time:        self.arrear_date.strftime('%H:%M'),
+          arrear_date:        self.arrear_date.utc.strftime('%Y-%m-%d'),
+          arrear_time:        self.arrear_date.utc.strftime('%H:%M'),
           transaction_number: self.transaction_number }
       when 2
         { transaction_number_2: self.transaction_number_2 }
