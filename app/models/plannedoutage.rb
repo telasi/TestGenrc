@@ -6,7 +6,7 @@ class Plannedoutage < ActiveRecord::Base
   def to_hash
 
   if !self.compare_date_2.nil? 
-  	then compare_date_2=self.compare_date_2.strftime('%Y %m %d %H %M')
+  	then compare_date_2=self.compare_date_2.strftime('%d/%m/%Y')
   end
 
   	case self.stage
