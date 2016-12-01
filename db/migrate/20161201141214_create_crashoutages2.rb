@@ -5,6 +5,7 @@ class CreateCrashoutages2 < ActiveRecord::Migration
     	 t.integer     :break_type , limit: 2
 		 t.integer     :disabling_consumer_count, limit: 8
 		 t.integer     :jit_switch_on_consumer_count, limit: 8
+         t.datetime    :compare_date_2
          t.datetime    :compare_time_2
          t.string      :attach_2_1
 

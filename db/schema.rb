@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.integer  "break_type",                     limit: 2,  precision: 2
     t.integer  "disabling_consumer_count",                  precision: 38
     t.integer  "jit_switch_on_consumer_count",   limit: 8,  precision: 8
+    t.datetime "compare_date_2"
     t.datetime "compare_time_2"
     t.string   "attach_2_1"
     t.datetime "inf_dissemination_actual_date"
