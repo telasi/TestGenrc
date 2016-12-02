@@ -20,14 +20,14 @@ class QueueProcessor
       item2.update(sent_at: Time.now)
       item2.save
       #item.update_attributes(sent_at: Time.now)
-      Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 1, error: nil)
+      Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: nil)
     elsif result && result.key?('error')
       raise Exception.new(result['message'])
     else
       raise Exception.new('Unknown error')
     end
   rescue Exception => e
-    Log.create!(service: item.service, service_id: item.service_id, action: 'send', success: 0, error: e.message[0..3999])
+    Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 0, error: e.message[0..3999])
     #raise e
   end
 
