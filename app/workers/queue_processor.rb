@@ -12,7 +12,7 @@ class QueueProcessor
     clazz = item.service.constantize
     clazz.connection
     obj = clazz.find(item.service_id)
-    result = Client.send_b(obj)
+    result = Client.send_b(obj, item.stage)
     if result && result.key?('result') && result['result'] == "OK"
       obj.update_attributes!(response_id: result['id'])
       ##
