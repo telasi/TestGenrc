@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   wash_out :soap
 
   get '/test', controller: 'application', action: 'test', as: 'test'
+
+  get '/total', controller: 'report', action: 'total', as: 'total'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -22,6 +22,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+#source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+#end
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 
 gem 'ruby-oci8'
 gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'

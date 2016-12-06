@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="card">
+  	<div class="card-block">
+  	  <h3 class="card-title"><%= (Time.now - 1.days).strftime("%d/%m/%Y") %></h3>
+	  <% @totals.each do |service, count| %>
+		  <div class="row">
+		  	<div class ='col-md-10'>
+				<div class="text-xs-left"><%= I18n.t("services.#{service.constantize.name}") %></div>
+			</div>
+			<div class='col-md-2'>
+				<div class="text-xs-right"><%= count %></div>
+			</div>
+		  </div>
+			
+		<progress class="progress" value="<%= count %>" max="<%= @max %>" aria-describedby="example-caption-1"></progress>
+	   <% end %>
+	</div>
+  </div>
+</div>
