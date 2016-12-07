@@ -64,6 +64,8 @@ class Client
 
   def self.send_b(object, stage=1)
 
+    object.stage = stage
+
     microtime = Time.now.to_f.to_s
     
     checkcode = Digest::MD5.hexdigest( [Config::USERNAME, 
@@ -103,7 +105,6 @@ class Client
     
       request = Net::HTTP::Post.new(uri.request_uri)
 
-      object.stage = stage
       query_params = object.to_hash
 
       request.set_form_data( query_params )    
