@@ -11,8 +11,8 @@ class Plannedoutage2 < ActiveRecord::Base
           break_start_actual_date:       self.break_start_actual_date,
           break_end_actual_date:         self.break_end_actual_date, 
           disabling_consumer_count:      self.disabling_consumer_count,
-          ransaction_number_4:           self.ransaction_number_4,
-          ransaction_number_5:           self.ransaction_number_5,
+          transaction_number_4:          self.transaction_number_4,
+          transaction_number_5:          self.transaction_number_5,
           postponed_suspend:             self.postponed_suspend
         }
 

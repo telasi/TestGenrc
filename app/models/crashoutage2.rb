@@ -22,7 +22,7 @@ class Crashoutage2 < ActiveRecord::Base
           JIT_switch_on_consumer_count:            self.jit_switch_on_consumer_count,
           compare_date_2:                            compare_date_2,
           compare_time_2:                            compare_time_2,
-          attach_2_1:                              self.attach_2_1,
+          transaction_number_5:                    self.attach_2_1,
 
           information_dissemination_actual_date:   self.information_dissemination_actual_date,
           information_dissemination_actual_time:   self.information_dissemination_actual_time,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201141214) do
+ActiveRecord::Schema.define(version: 20161207123858) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -254,8 +254,8 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.datetime "break_start_actual_date"
     t.datetime "break_end_actual_date"
     t.integer  "disabling_consumer_count", limit: 10, precision: 10
-    t.string   "ransaction_number_4",      limit: 10
-    t.string   "ransaction_number_5",      limit: 10
+    t.string   "transaction_number_4",     limit: 10
+    t.string   "transaction_number_5",     limit: 10
     t.text     "postponed_suspend"
     t.string   "record_status",            limit: 10
     t.datetime "log_day"
