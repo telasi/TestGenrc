@@ -22,7 +22,13 @@ class QueueProcessor
       #item.update_attributes(sent_at: Time.now)
       Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: nil)
     elsif result && result.key?('error')
-      raise Exception.new(result['message'])
+      if result.key?('error') && result['error'] == "12"
+        item2=SendQueue.find_by(id: item.id)
+        item2.update(sent_at: Time.now)
+        item2.save
+      else
+        raise Exception.new(result['message'])
+      end
     else
       raise Exception.new('Unknown error')
     end
