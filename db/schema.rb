@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201141214) do
+ActiveRecord::Schema.define(version: 20161215102941) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.string   "outg_comment"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
+    t.string   "outg_sys_type"
   end
 
   create_table "crashoutages", force: :cascade do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "break_reason_comment"
+    t.string   "outg_sys_type"
   end
 
   create_table "cutter", force: :cascade do |t|
@@ -254,8 +256,8 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.datetime "break_start_actual_date"
     t.datetime "break_end_actual_date"
     t.integer  "disabling_consumer_count", limit: 10, precision: 10
-    t.string   "ransaction_number_4",      limit: 10
-    t.string   "ransaction_number_5",      limit: 10
+    t.string   "transaction_number_4",     limit: 10
+    t.string   "transaction_number_5",     limit: 10
     t.text     "postponed_suspend"
     t.string   "record_status",            limit: 10
     t.datetime "log_day"
@@ -265,6 +267,7 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
     t.string   "linked_base_id",           limit: 10
+    t.string   "outg_sys_type"
   end
 
   create_table "plannedoutages", force: :cascade do |t|
@@ -288,6 +291,7 @@ ActiveRecord::Schema.define(version: 20161201141214) do
     t.string   "outg_base_id",                   limit: 500
     t.decimal  "stage"
     t.string   "break_reason_comment"
+    t.string   "outg_sys_type"
   end
 
   create_table "queue", force: :cascade do |t|
