@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+
+/public
+
 # Ignore
 /config/database.yml
 /config/secrets.yml

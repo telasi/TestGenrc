@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 #end
-gem 'sprockets-rails', '>= 2.3.2'
+gem 'sprockets-rails', '>=2.3.2'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 
 gem 'ruby-oci8'
