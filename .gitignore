@@ -18,6 +18,8 @@
 
 
 /public
+/oradiag_root
+oradiag_root/
 
 # Ignore
 /config/database.yml

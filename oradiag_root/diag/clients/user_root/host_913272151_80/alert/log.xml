@@ -461,3 +461,21 @@
  <txt>Directory does not exist for read/write [/usr/lib/oracle/11.2/client64/lib/log] []
  </txt>
 </msg>
+<msg time='2016-12-15T17:56:34.070+04:00' org_id='oracle' comp_id='clients'
+ type='UNKNOWN' level='16' host_id='semeki'
+ host_addr='10.235.170.35'>
+ <txt>Directory does not exist for read/write [/usr/lib/oracle/11.2/client64/lib/log] []
+ </txt>
+</msg>
+<msg time='2016-12-15T17:56:35.779+04:00' org_id='oracle' comp_id='clients'
+ type='UNKNOWN' level='16' host_id='semeki'
+ host_addr='10.235.170.35'>
+ <txt>Directory does not exist for read/write [/usr/lib/oracle/11.2/client64/lib/log] []
+ </txt>
+</msg>
+<msg time='2016-12-15T17:56:41.310+04:00' org_id='oracle' comp_id='clients'
+ type='UNKNOWN' level='16' host_id='semeki'
+ host_addr='10.235.170.35'>
+ <txt>Directory does not exist for read/write [/usr/lib/oracle/11.2/client64/lib/log] []
+ </txt>
+</msg>
