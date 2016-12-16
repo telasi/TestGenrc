@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215102941) do
+ActiveRecord::Schema.define(version: 20161216074936) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20161215102941) do
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
     t.string   "outg_sys_type"
+    t.decimal  "response_id"
   end
 
   create_table "crashoutages", force: :cascade do |t|
@@ -268,6 +269,7 @@ ActiveRecord::Schema.define(version: 20161215102941) do
     t.datetime "updated_at",                                         null: false
     t.string   "linked_base_id",           limit: 10
     t.string   "outg_sys_type"
+    t.decimal  "response_id"
   end
 
   create_table "plannedoutages", force: :cascade do |t|
