@@ -25,7 +25,7 @@ class Crashoutage2 < ActiveRecord::Base
           transaction_number_5:                    self.attach_2_1,
 
           information_dissemination_actual_date:   self.inf_dissemination_actual_date,
-          information_dissemination_actual_date:   self.inf_dissemination_actual_time,
+          information_dissemination_actual_time:   self.inf_dissemination_actual_date,
           disabling_consumer_count:                self.disabling_consumer_count, 
           JIT_infromation_consumer_count:          self.jit_infromation_consumer_count,
           list_of_media:                           self.list_of_media,
