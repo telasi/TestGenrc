@@ -64,6 +64,7 @@ class Client
 
   def self.send_b(object, stage=1)
 
+    old_stage = object.stage
     object.stage = stage
 
     microtime = Time.now.to_f.to_s
@@ -106,12 +107,15 @@ class Client
       request = Net::HTTP::Post.new(uri.request_uri)
 
       query_params = object.to_hash
+      object.stage = old_stage if ( old_stage && old_stage.present? )
 
       request.set_form_data( query_params )    
    
       puts "##########1112###POST#######"    
       puts  uri.host 
 
+      puts "##########1113###PUT REQUEST#######"
+      puts request
 
     response = http.request(request)
     #byebug
