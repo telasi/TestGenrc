@@ -3,6 +3,8 @@ class Cutter < ActiveRecord::Base
 	self.table_name = 'cutter'
 
   CASE_ID = 3
+
+  before_save :convert_geo
   
   def to_hash
   	case self.stage
@@ -19,6 +21,12 @@ class Cutter < ActiveRecord::Base
       when 3
         { attach_3_3: self.attach_3_3 }
     end
+  end
+
+  private 
+
+  def convert_geo
+    self.gnerc_status_geo = self.gnerc_status.ka_str_to_bs
   end
 
 end
