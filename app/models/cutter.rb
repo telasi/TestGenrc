@@ -26,7 +26,7 @@ class Cutter < ActiveRecord::Base
   private 
 
   def convert_geo
-    self.gnerc_status_geo = self.gnerc_status.ka_str_to_bs
+    self.gnerc_status_geo = self.gnerc_status.ka_str_to_bs if self.gnerc_status
   end
 
 end
