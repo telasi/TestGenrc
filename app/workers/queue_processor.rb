@@ -15,6 +15,7 @@ class QueueProcessor
     result = Client.send_b(obj, item.stage)
     if result && result.key?('result') && result['result'] == "OK"
       obj.update_attributes!(response_id: result['id']) if result['id'].present?
+      obj.update_attributes!(gnerc_status: result['status']) if result['status'].present?
       ##
       item2=SendQueue.find_by(id: item.id)
       item2.update(sent_at: Time.now)
