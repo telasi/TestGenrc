@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222072727) do
+ActiveRecord::Schema.define(version: 20161222161522) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20161222072727) do
     t.string   "outg_comment"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
+    t.string   "outg_sys_type"
+    t.decimal  "response_id"
+    t.string   "gnerc_status"
   end
 
   create_table "crashoutages", force: :cascade do |t|
@@ -105,114 +108,126 @@ ActiveRecord::Schema.define(version: 20161222072727) do
   end
 
   create_table "cutter", force: :cascade do |t|
-    t.integer  "transaction_number",              precision: 38
-    t.string   "abonent_number",       limit: 20
+    t.integer  "transaction_number",                    precision: 38
+    t.string   "abonent_number",             limit: 20
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "abonent_type",                    precision: 38
+    t.integer  "abonent_type",                          precision: 38
     t.datetime "arrear_date"
     t.binary   "attach_3_1"
     t.binary   "attach_3_2"
     t.binary   "attach_3_3"
-    t.integer  "response_id",                     precision: 38
-    t.integer  "stage",                           precision: 38
+    t.integer  "response_id",                           precision: 38
+    t.integer  "stage",                                 precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.integer  "cutgroup",             limit: 12, precision: 12
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.integer  "cutgroup",                   limit: 12, precision: 12
     t.string   "transaction_number_2"
     t.string   "gnerc_status"
+    t.string   "gnerc_status_geo"
+    t.string   "transaction_number_3"
+    t.string   "the_amount_of_compensation"
   end
 
   create_table "docflow4", force: :cascade do |t|
-    t.integer  "docid",           precision: 38
-    t.integer  "docyear",         precision: 38
+    t.integer  "docid",                      precision: 38
+    t.integer  "docyear",                    precision: 38
     t.string   "letter_number"
-    t.integer  "abonent_number",  precision: 38
+    t.integer  "abonent_number",             precision: 38
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "abonent_type",    precision: 38
+    t.integer  "abonent_type",               precision: 38
     t.datetime "appeal_date"
     t.binary   "attach_4_1"
     t.binary   "attach_4_2"
     t.binary   "attach_4_3"
-    t.integer  "response_id",     precision: 38
-    t.integer  "stage",           precision: 38
+    t.integer  "response_id",                precision: 38
+    t.integer  "stage",                      precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "letter_category", precision: 38
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "letter_category",            precision: 38
     t.string   "gnerc_status"
+    t.string   "transaction_number_3"
+    t.string   "the_amount_of_compensation"
   end
 
   create_table "docflow5", force: :cascade do |t|
-    t.integer  "docid",             precision: 38
-    t.integer  "docyear",           precision: 38
+    t.integer  "docid",                      precision: 38
+    t.integer  "docyear",                    precision: 38
     t.string   "letter_number"
-    t.integer  "abonent_number",    precision: 38
+    t.integer  "abonent_number",             precision: 38
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "consumer_category", precision: 38
+    t.integer  "consumer_category",          precision: 38
     t.datetime "appeal_date"
     t.binary   "attach_5_1"
     t.binary   "attach_5_2"
     t.binary   "attach_5_3"
-    t.integer  "response_id",       precision: 38
-    t.integer  "stage",             precision: 38
+    t.integer  "response_id",                precision: 38
+    t.integer  "stage",                      precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "gnerc_status"
+    t.string   "transaction_number_3"
+    t.string   "the_amount_of_compensation"
   end
 
   create_table "docflow6", force: :cascade do |t|
-    t.integer  "docid",             precision: 38
-    t.integer  "docyear",           precision: 38
+    t.integer  "docid",                      precision: 38
+    t.integer  "docyear",                    precision: 38
     t.string   "letter_number"
     t.string   "applicant"
     t.string   "applicant_address"
-    t.integer  "abonent_number",    precision: 38
-    t.integer  "consumer_category", precision: 38
+    t.integer  "abonent_number",             precision: 38
+    t.integer  "consumer_category",          precision: 38
     t.datetime "appeal_date"
     t.binary   "attach_6_1"
     t.binary   "attach_6_2"
     t.binary   "attach_6_3"
-    t.integer  "response_id",       precision: 38
-    t.integer  "stage",             precision: 38
+    t.integer  "response_id",                precision: 38
+    t.integer  "stage",                      precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "gnerc_status"
+    t.string   "transaction_number_3"
+    t.string   "the_amount_of_compensation"
+    t.string   "assigned_abonent_number"
   end
 
   create_table "docflow8", force: :cascade do |t|
-    t.integer  "docid",             precision: 38
-    t.integer  "docyear",           precision: 38
+    t.integer  "docid",                      precision: 38
+    t.integer  "docyear",                    precision: 38
     t.string   "letter_number"
-    t.integer  "abonent_number",    precision: 38
+    t.integer  "abonent_number",             precision: 38
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "consumer_category", precision: 38
+    t.integer  "consumer_category",          precision: 38
     t.datetime "appeal_date"
     t.binary   "attach_8_1"
     t.binary   "attach_8_2"
     t.binary   "attach_8_3"
-    t.integer  "response_id",       precision: 38
-    t.integer  "stage",             precision: 38
+    t.integer  "response_id",                precision: 38
+    t.integer  "stage",                      precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "gnerc_status"
+    t.string   "transaction_number_3"
+    t.string   "the_amount_of_compensation"
   end
 
   create_table "log", force: :cascade do |t|
