@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216074936) do
+ActiveRecord::Schema.define(version: 20161222071857) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "updated_at",                                               null: false
     t.string   "outg_sys_type"
     t.decimal  "response_id"
+    t.string   "gnerc_status"
   end
 
   create_table "crashoutages", force: :cascade do |t|
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "updated_at"
     t.string   "break_reason_comment"
     t.string   "outg_sys_type"
+    t.string   "gnerc_status"
   end
 
   create_table "cutter", force: :cascade do |t|
@@ -99,6 +101,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "updated_at",                                     null: false
     t.integer  "cutgroup",             limit: 12, precision: 12
     t.string   "transaction_number_2"
+    t.string   "gnerc_status"
   end
 
   create_table "docflow4", force: :cascade do |t|
@@ -121,6 +124,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "letter_category", precision: 38
+    t.string   "gnerc_status"
   end
 
   create_table "docflow5", force: :cascade do |t|
@@ -142,6 +146,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "stage_3_date"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "gnerc_status"
   end
 
   create_table "docflow6", force: :cascade do |t|
@@ -163,6 +168,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "stage_3_date"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "gnerc_status"
   end
 
   create_table "docflow8", force: :cascade do |t|
@@ -184,6 +190,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "stage_3_date"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "gnerc_status"
   end
 
   create_table "log", force: :cascade do |t|
@@ -216,6 +223,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
     t.binary   "attach_7_4"
+    t.string   "gnerc_status"
   end
 
   create_table "pallnedoutage2s", force: :cascade do |t|
@@ -270,6 +278,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.string   "linked_base_id",           limit: 10
     t.string   "outg_sys_type"
     t.decimal  "response_id"
+    t.string   "gnerc_status"
   end
 
   create_table "plannedoutages", force: :cascade do |t|
@@ -294,6 +303,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.decimal  "stage"
     t.string   "break_reason_comment"
     t.string   "outg_sys_type"
+    t.string   "gnerc_status"
   end
 
   create_table "queue", force: :cascade do |t|
@@ -304,5 +314,7 @@ ActiveRecord::Schema.define(version: 20161216074936) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "queue", ["service", "service_id", "stage"], name: "queuee_uniq_key", unique: true
 
 end

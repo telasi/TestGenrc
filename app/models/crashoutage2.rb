@@ -24,6 +24,7 @@ class Crashoutage2 < ActiveRecord::Base
           compare_time_2:                            compare_time_2,
           transaction_number_5:                    self.attach_2_1,
           response_id:                             self.attach_2_1,  
+          attach_2_2:                              self.attach_2_1,
 
           information_dissemination_actual_date:   self.inf_dissemination_actual_date,
           information_dissemination_actual_time:   self.inf_dissemination_actual_date,
