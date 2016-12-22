@@ -35,7 +35,7 @@ class Docflow4 < ActiveRecord::Base
   		when 2
   			fields = [:attach_4_2]
   		when 3
-  			fields = [:attach_4_3]
+  			fields = [ :transaction_number_3, :the_amount_of_compensation ]
   	end
   	self.serializable_hash(only: fields)
   end

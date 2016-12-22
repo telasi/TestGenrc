@@ -19,7 +19,8 @@ class Cutter < ActiveRecord::Base
       when 2
         { transaction_number_2: self.transaction_number_2 }
       when 3
-        { attach_3_3: self.attach_3_3 }
+        { transaction_number_3:       self.transaction_number_3,
+          the_amount_of_compensation: self.the_amount_of_compensation }
     end
   end
 
