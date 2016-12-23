@@ -4,10 +4,10 @@ module Base
   extend ActiveSupport::Concern
 
   included do
-    after_save :save_to_log
+	  def update_stage_date
+	  	field = "stage_#{self.stage}_date"
+	  	self.send(field + '=', Time.now) if self.respond_to?(field)
+	  end
   end
-
-  def save_to_log
-  	Log.create!(service: self.class.name, service_id: self.id, action: 'save', success: 1)
-  end
+  
 end

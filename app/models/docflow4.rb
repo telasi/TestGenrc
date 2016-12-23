@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Docflow4 < ActiveRecord::Base
-  #include Base
+  include Base
 
   CASE_ID = 4
 

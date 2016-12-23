@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Newcust < ActiveRecord::Base
+  include Base
+  
 	self.table_name = 'newcust'
 
   CASE_ID = 7

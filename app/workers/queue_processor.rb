@@ -14,6 +14,7 @@ class QueueProcessor
     obj = clazz.find(item.service_id)
     result = Client.send_b(obj, item.stage)
     if result && result.key?('result') && result['result'] == "OK"
+      obj.update_stage if obj.respond_to?('update_stage')
       obj.update_attributes!(response_id: result['id']) if result['id'].present?
       obj.update_attributes!(gnerc_status: result['status']) if result['status'].present?
       ##

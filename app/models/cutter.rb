@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Cutter < ActiveRecord::Base
+  include Base
+  
 	self.table_name = 'cutter'
 
   CASE_ID = 3

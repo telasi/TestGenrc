@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Docflow8 < ActiveRecord::Base
+  include Base
+  
 	self.table_name = 'docflow8'
 
   CASE_ID = 8
