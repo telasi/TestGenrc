@@ -33,9 +33,9 @@ class Docflow6 < ActiveRecord::Base
   	case self.stage
   		when 1
   			fields = [:letter_number, :applicant, :abonent_number, :applicant_address,
-  					      :consumer_category, :appeal_date, :assigned_abonent_number, :attach_6_1]
+  					      :consumer_category, :appeal_date, :assigned_abonent_number, :attach_6_1, :attach_6_1_filename]
   		when 2
-  			fields = [:attach_6_2]
+  			fields = [:attach_6_2, :attach_6_2_filename]
   		when 3
   			fields = [ :transaction_number_3, :the_amount_of_compensation ]
   	end
