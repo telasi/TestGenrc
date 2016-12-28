@@ -37,6 +37,6 @@ class Docflow4 < ActiveRecord::Base
   		when 3
   			fields = [ :transaction_number_3, :the_amount_of_compensation ]
   	end
-  	self.serializable_hash(only: fields)
+  	self.serializable_hash(only: fields).each_with_object({}) { |(k,v), hash| hash[k] = v || " " }
   end
 end
