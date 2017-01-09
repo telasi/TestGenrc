@@ -11,7 +11,7 @@ class QueueProcessor
 
   def self.perform_cron
     SendQueueV.all.each do |item|
-      send_item(item)
+      send_item_cron(item)
     end
   end
 
