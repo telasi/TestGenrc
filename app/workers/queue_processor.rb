@@ -8,6 +8,13 @@ class QueueProcessor
     end
   end
 
+
+  def self.perform_cron
+    SendQueueV.all.each do |item|
+      send_item(item)
+    end
+  end
+
   def send_item(item)
     clazz = item.service.constantize
     clazz.connection
