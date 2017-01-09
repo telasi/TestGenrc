@@ -41,4 +41,4 @@ class QueueProcessor
 
 end
 
-Sidekiq::Cron::Job.create(name: 'Queue Processor - every 1min', cron: '* * * * *', class: 'QueueProcessor')
+Sidekiq::Cron::Job.create(name: 'Queue Processor - every 1min', cron: '*/5 * * * *', class: 'QueueProcessor')
