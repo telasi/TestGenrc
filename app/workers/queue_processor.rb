@@ -1,6 +1,6 @@
 class QueueProcessor
-  include Sidekiq::Worker
-  sidekiq_options retry: false
+  #include Sidekiq::Worker
+  #sidekiq_options retry: false
 
   def perform
     SendQueueV.all.each do |item|
@@ -41,4 +41,4 @@ class QueueProcessor
 
 end
 
-Sidekiq::Cron::Job.create(name: 'Queue Processor - every 1min', cron: '*/5 * * * *', class: 'QueueProcessor')
+#Sidekiq::Cron::Job.create(name: 'Queue Processor - every 1min', cron: '*/5 * * * *', class: 'QueueProcessor')
