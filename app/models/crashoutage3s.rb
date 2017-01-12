@@ -21,7 +21,7 @@ class Crashoutage3 < ActiveRecord::Base
           compare_date_2:                            compare_date_2,
           compare_time_2:                            compare_time_2,
           transaction_number_5:                    self.attach_2_1,
-          response_id:                             self.attach_2_1
+          response_id:                             self.attach_2_1,
           disabling_consumer_count:                self.disabling_consumer_count
         }
 
