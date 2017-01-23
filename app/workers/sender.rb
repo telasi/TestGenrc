@@ -1,5 +1,5 @@
 class Sender
-  include Sidekiq::Worker
+  #include Sidekiq::Worker
 
   def perform(classname, id)
   	clazz = classname.constantize
