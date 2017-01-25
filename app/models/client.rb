@@ -5,6 +5,7 @@ class Client
   base_uri 'http://gnerc.org/cportal/public/api/v1/getlist'
   PHASE1_URL = ''
   PHASE2_URL = '/edit'
+  HTTP_READ_TIMEOUT = 500
   
   def self.send(object)
 
@@ -100,6 +101,7 @@ class Client
 
       # Full control
       http = Net::HTTP.new(uri.host, uri.port)
+      http.read_timeout = HTTP_READ_TIMEOUT
 
       puts "##########1111###GET#######"      
       puts uri.request_uri
