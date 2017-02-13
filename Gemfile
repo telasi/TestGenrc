@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #end
 gem 'sprockets-rails', '>=2.3.2'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-datepicker-rails'
 
 gem 'ruby-oci8'
 gem 'activerecord-oracle_enhanced-adapter', '~> 1.6.0'

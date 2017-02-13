@@ -1,7 +1,21 @@
 <div class="container">
   <div class="card">
   	<div class="card-block">
-  	  <h3 class="card-title"><%= (Time.now - 1.days).strftime("%d/%m/%Y") %></h3>
+  	  <form action="" method="POST">
+	  	  <div class="row">
+	  	  	<div class="span5 col-md-2">
+	  	  	    <div class="input-group date">
+			      <input id="day" name="day" type="text" value='<%= @day.strftime("%d/%m/%Y") %>' class="form-control" data-provide="datepicker"><span class="input-group-addon">
+			      <i class="glyphicon glyphicon-th"></i></span>
+			    </div>
+			</div>
+			<div class="span5 col-md-5">
+			    <input type="submit" value="Update" class="btn btn-primary">
+			</div>
+	<!--  	  	<h3 class="card-title"><%= (Time.now - 1.days).strftime("%d/%m/%Y") %></h3> -->
+	  	  </div>
+  	  </form>
+  	  <br>
 	  <% @totals.each do |service, count| %>
 		  <div class="row">
 		  	<div class ='col-md-10'>
@@ -17,3 +31,9 @@
 	</div>
   </div>
 </div>
+
+<script>
+    $('.input-group.date input').datepicker({
+        format: "dd/mm/yyyy"
+    });
+</script>

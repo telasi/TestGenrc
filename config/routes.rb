@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get '/test', controller: 'application', action: 'test', as: 'test'
 
-  get '/total', controller: 'report', action: 'total', as: 'total'
+  match '/total', controller: 'report', action: 'total', as: 'total', via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
