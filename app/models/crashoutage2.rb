@@ -21,7 +21,7 @@ class Crashoutage2 < ActiveRecord::Base
           disabling_consumer_count:                self.disabling_consumer_count, 
           JIT_switch_on_consumer_count:            self.jit_switch_on_consumer_count,
           compare_date_2:                            compare_date_2,
-          compare_time_2:                            compare_date_2,
+          compare_time_2:                            compare_time_2,
           transaction_number_5:                    self.attach_2_1,
           response_id:                             self.attach_2_1,  
           #attach_2_2:                              self.attach_2_1,
