@@ -10,7 +10,7 @@ class Crashoutage2 < ActiveRecord::Base
   end
 
   if !self.compare_time_2.nil? 
-    then compare_time_2=self.compare_time_2.strftime('%H:%M:%S') 
+    then compare_time_2=self.compare_time_2.strftime('%H:%M') 
   end
 
 
