@@ -39,7 +39,7 @@ class QueueProcessor
         raise Exception.new(result['message'])
       end
     else
-      raise Exception.new(result['message'])
+      raise Exception.new('error: ' + result.to_s)
     end
   rescue Exception => e
     Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 0, error: e.message[0..3999])
