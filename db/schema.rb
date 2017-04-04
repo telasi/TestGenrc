@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222161522) do
+ActiveRecord::Schema.define(version: 20170404072506) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -105,6 +105,11 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "break_reason_comment"
     t.string   "outg_sys_type"
     t.string   "gnerc_status"
+    t.string   "comment1"
+    t.string   "comment2"
+    t.string   "comment3"
+    t.datetime "notify_time"
+    t.binary   "outg_customers"
   end
 
   create_table "cutter", force: :cascade do |t|
@@ -155,6 +160,9 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "gnerc_status"
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
+    t.string   "attach_4_1_filename"
+    t.string   "attach_4_2_filename"
+    t.string   "attach_4_3_filename"
   end
 
   create_table "docflow5", force: :cascade do |t|
@@ -179,6 +187,9 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "gnerc_status"
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
+    t.string   "attach_5_1_filename"
+    t.string   "attach_5_2_filename"
+    t.string   "attach_5_3_filename"
   end
 
   create_table "docflow6", force: :cascade do |t|
@@ -204,6 +215,9 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
     t.string   "assigned_abonent_number"
+    t.string   "attach_6_1_filename"
+    t.string   "attach_6_2_filename"
+    t.string   "attach_6_3_filename"
   end
 
   create_table "docflow8", force: :cascade do |t|
@@ -228,6 +242,20 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "gnerc_status"
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
+    t.string   "attach_8_1_filename"
+    t.string   "attach_8_2_filename"
+    t.string   "attach_8_3_filename"
+  end
+
+  create_table "incomplete", id: false, force: :cascade do |t|
+    t.string   "id",          limit: 20,   null: false
+    t.string   "service",     limit: 20
+    t.string   "docnumber",   limit: 20,   null: false
+    t.datetime "appeal_date"
+    t.string   "status",      limit: 20
+    t.string   "closed",      limit: 20
+    t.datetime "sent"
+    t.string   "error",       limit: 2000
   end
 
   create_table "log", force: :cascade do |t|
@@ -261,6 +289,10 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "the_amount_of_compensation"
     t.binary   "attach_7_4"
     t.string   "gnerc_status"
+    t.string   "attach_7_1_filename"
+    t.string   "attach_7_2_filename"
+    t.string   "attach_7_3_filename"
+    t.string   "attach_7_4_filename"
   end
 
   create_table "pallnedoutage2s", force: :cascade do |t|
@@ -341,6 +373,11 @@ ActiveRecord::Schema.define(version: 20161222161522) do
     t.string   "break_reason_comment"
     t.string   "outg_sys_type"
     t.string   "gnerc_status"
+    t.string   "comment1"
+    t.string   "comment2"
+    t.string   "comment3"
+    t.datetime "notify_time"
+    t.binary   "outg_customers"
   end
 
   create_table "queue", force: :cascade do |t|
