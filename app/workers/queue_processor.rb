@@ -32,9 +32,14 @@ class QueueProcessor
       Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: nil)
     elsif result && result.key?('error')
       if result.key?('error') && result['error'] == "12"
+        obj.update_stage_date if obj.respond_to?('update_stage_date')
+        obj.update_attributes!(gnerc_status: result['message']) if result['message'].present?
+
         item2=SendQueue.find_by(id: item.id)
         item2.update(sent_at: Time.now)
         item2.save
+
+        Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: '12')
       else
         raise Exception.new(result['message'])
       end
