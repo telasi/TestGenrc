@@ -65,3 +65,5 @@ gem 'sidekiq-retries'
 gem 'sinatra', :require => nil
 gem 'redis'
 gem 'execjs'
+
+gem 'axlsx_rails'

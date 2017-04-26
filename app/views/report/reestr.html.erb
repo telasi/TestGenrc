@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="card">
+  	<div class="card-block">
+  	  <form action="" method="POST">
+	  	  <div class="row">
+	  	  	<div class="span5 col-md-2">
+	  	  	    <div class="input-group date">
+			      <input id="fromday" name="fromday" type="text" value='<%= @fromday.strftime("%d/%m/%Y") %>' class="form-control" data-provide="datepicker"><span class="input-group-addon">
+			      <i class="glyphicon glyphicon-th"></i></span>
+			    </div>
+			</div>
+			<div class="span5 col-md-2">
+	  	  	    <div class="input-group date">
+			      <input id="today" name="today" type="text" value='<%= @today.strftime("%d/%m/%Y") %>' class="form-control" data-provide="datepicker"><span class="input-group-addon">
+			      <i class="glyphicon glyphicon-th"></i></span>
+			    </div>
+			</div>
+			<div class="span5 col-md-2">
+			    <input type="submit" value="Update" class="btn btn-primary">
+			</div>
+			<div class="span5 col-md-1">
+				<a href="<%= "#{request.url}.xlsx" %>" class="btn btn-success active" role="button" aria-pressed="true">Export to Excel</a>
+			</div>
+	<!--  	  	<h3 class="card-title"><%= (Time.now - 1.days).strftime("%d/%m/%Y") %></h3> -->
+	  	  </div>
+  	  </form>
+  	  <br>
+
+  	  <table class="table" style="font-size:11px;">
+		<thead class="thead-default">
+		    <tr>
+		      <th>N</th>
+		      <th>სახეობა</th>
+		      <th>შემოსული</th>
+		      <th>მიმდინარე ვადაგადაცილებით</th>
+		      <th>მიმდინარე ვადაგადაცილების გარეშე</th>
+		      <th>პასუხგაცემული ვადაში</th>
+		      <th>პასუხგაცემული ვადის დარღვევით</th>
+		    </tr>
+		</thead>
+
+		<tbody>
+			<% @array.each do |arr| %>
+				<tr>
+				  <th scope="row"><%= arr[:type] %></th>
+			      <th scope="row"><%= docflow_subtypes_collection[arr[:type]] %></th>
+			      <td><%= arr[:total] %></td>
+			      <td><%= arr[:current_late] %></td>
+			      <td><%= arr[:current_ok] %></td>
+			      <td><%= arr[:answered_late] %></td>
+			      <td><%= arr[:answered_ok] %></td>
+			    </tr>
+			<% end %>
+		  </tbody>
+  	  </table>
+
+	</div>
+  </div>
+</div>
+
+<script>
+    $('.input-group.date input').datepicker({
+        format: "dd/mm/yyyy"
+    });
+</script>
+
+<script type="text/javascript">
+$(function() {
+  var wait_text = 'გთხოვთ დაელოდოთ...';
+  $('a[href*=".xlsx"]').click(function(event) {
+    var $link = $(this);
+    var $span = $($link.children('span')[0]);
+    if ($span.html() === wait_text) {
+      event.preventDefault();
+    } else {
+      $span.html(wait_text);
+    }
+  });
+});
+</script>
