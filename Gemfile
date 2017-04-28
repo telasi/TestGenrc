@@ -67,3 +67,5 @@ gem 'redis'
 gem 'execjs'
 
 gem 'axlsx_rails'
+gem 'working_hours'
+gem 'bootstrap-will_paginate'

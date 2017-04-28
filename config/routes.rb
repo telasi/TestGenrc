@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   match '/total', controller: 'report', action: 'total', as: 'total', via: [:get, :post]
   match '/report', controller: 'report', action: 'report', as: 'report', via: [:get, :post]
   match '/reestr', controller: 'report', action: 'reestr', as: 'reestr', via: [:get, :post]
+  get '/reestr_drilldown', controller: 'report', action: 'reestr_drilldown', as: 'reestr_drilldown', via: [:get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

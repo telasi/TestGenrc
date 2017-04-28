@@ -15,12 +15,6 @@
 			      <i class="glyphicon glyphicon-th"></i></span>
 			    </div>
 			</div>
-			<div class="span5 col-md-2">
-			    <input type="submit" value="Update" class="btn btn-primary">
-			</div>
-			<div class="span5 col-md-1">
-				<%= link_to('Export to Excel', reestr_url(format: :xlsx, fromday: @fromday, today: @today), {method: :post}) %>
-			</div>
 	<!--  	  	<h3 class="card-title"><%= (Time.now - 1.days).strftime("%d/%m/%Y") %></h3> -->
 	  	  </div>
   	  </form>
@@ -31,29 +25,28 @@
 		    <tr>
 		      <th>N</th>
 		      <th>სახეობა</th>
-		      <th>შემოსული</th>
-		      <th>მიმდინარე ვადაგადაცილებით</th>
-		      <th>მიმდინარე ვადაგადაცილების გარეშე</th>
-		      <th>პასუხგაცემული ვადაში</th>
-		      <th>პასუხგაცემული ვადის დარღვევით</th>
+		      <th>განაცხადის თარიღი</th>
+		      <th>ეტაპი</th>
+		      <th>შესრულების თარიღი</th>
+		      <th>სემეკის სტატუსი</th>
 		    </tr>
 		</thead>
 
 		<tbody>
-			<% @array.each do |arr| %>
-				<% drill_params = "#{reestr_drilldown_url}/?#{@dates_for_drilldown}&type=#{arr[:type]}" %>
+			<% @docs.each do |doc| %>
 				<tr>
-				  <th scope="row"><%= arr[:type] %></th>
-			      <th scope="row"><%= docflow_subtypes_collection[arr[:type]] %></th>
-			      <td><a href="<%= "#{drill_params}&column=1" %>"><%= arr[:total] %></a></td>
-			      <td><a href="<%= "#{drill_params}&column=2" %>"><%= arr[:current_late] %></a></td>
-			      <td><a href="<%= "#{drill_params}&column=3" %>"><%= arr[:current_ok] %></a></td>
-			      <td><a href="<%= "#{drill_params}&column=4" %>"><%= arr[:answered_late] %></a></td>
-			      <td><a href="<%= "#{drill_params}&column=5" %>"><%= arr[:answered_ok] %></a></td>
+				  <th scope="row"><%= doc.letter_number %></th>
+			      <th scope="row"><%= params[:type] %></th>
+			      <td><%= doc.appeal_date %></td>
+			      <td><%= doc.stage %></td>
+			      <td><%= doc.stage_2_date %></td>
+			      <td><%= doc.gnerc_status %></td>
 			    </tr>
 			<% end %>
 		  </tbody>
   	  </table>
+
+  	  <%= will_paginate(@docs, :renderer => WillPaginate::ActionView::LinkRenderer) %>
 
 	</div>
   </div>
