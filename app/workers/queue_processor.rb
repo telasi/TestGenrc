@@ -22,6 +22,8 @@ class QueueProcessor
     result = Client.send_b(obj, item.stage)
     if result && result.key?('result') && result['result'] == "OK"
       obj.update_stage_date if obj.respond_to?('update_stage_date')
+      obj.update_deadline(result['deadline for response']) if ( obj.respond_to?('update_deadline') && result.key?('deadline for response') )
+      obj.update_attributes!(compesation_amount: result['compesation amount']) if ( obj.respond_to?(:compesation_amount) && result.key?('compesation amount') )
       obj.update_attributes!(response_id: result['id']) if result['id'].present?
       obj.update_attributes!(gnerc_status: result['status']) if result['status'].present?
       ##
@@ -61,6 +63,8 @@ class QueueProcessor
     result = Client.send_b(obj, item.stage)
     if result && result.key?('result') && result['result'] == "OK"
       obj.update_stage_date if obj.respond_to?('update_stage_date')
+      obj.update_deadline(result['deadline for response']) if ( obj.respond_to?('update_deadline') && result.key?('deadline for response') )
+      obj.update_attributes!(compesation_amount: result['compesation amount']) if ( obj.respond_to?(:compesation_amount) && result.key?('compesation amount') )
       obj.update_attributes!(response_id: result['id']) if result['id'].present?
       obj.update_attributes!(gnerc_status: result['status']) if result['status'].present?
       ##

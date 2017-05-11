@@ -6,7 +6,7 @@ class Cutter < ActiveRecord::Base
 
   CASE_ID = 3
 
-  before_save :convert_geo
+  before_save :convert_geo, :convert_ka
   
   def to_hash
   	case self.stage
@@ -30,6 +30,10 @@ class Cutter < ActiveRecord::Base
 
   def convert_geo
     self.gnerc_status_geo = self.gnerc_status.ka_str_to_bs if self.gnerc_status
+  end
+
+  def convert_ka
+    self.note_ka = self.note.bs_str_to_ka if self.note
   end
 
 end

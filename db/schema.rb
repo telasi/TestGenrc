@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404072506) do
+ActiveRecord::Schema.define(version: 20170511064911) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -113,28 +113,30 @@ ActiveRecord::Schema.define(version: 20170404072506) do
   end
 
   create_table "cutter", force: :cascade do |t|
-    t.integer  "transaction_number",                    precision: 38
+    t.integer  "transaction_number",                     precision: 38
     t.string   "abonent_number",             limit: 20
     t.string   "abonent"
     t.string   "abonent_address"
-    t.integer  "abonent_type",                          precision: 38
+    t.integer  "abonent_type",                           precision: 38
     t.datetime "arrear_date"
     t.binary   "attach_3_1"
     t.binary   "attach_3_2"
     t.binary   "attach_3_3"
-    t.integer  "response_id",                           precision: 38
-    t.integer  "stage",                                 precision: 38
+    t.integer  "response_id",                            precision: 38
+    t.integer  "stage",                                  precision: 38
     t.datetime "stage_1_date"
     t.datetime "stage_2_date"
     t.datetime "stage_3_date"
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.integer  "cutgroup",                   limit: 12, precision: 12
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.integer  "cutgroup",                   limit: 12,  precision: 12
     t.string   "transaction_number_2"
     t.string   "gnerc_status"
     t.string   "gnerc_status_geo"
     t.string   "transaction_number_3"
     t.string   "the_amount_of_compensation"
+    t.string   "note",                       limit: 100
+    t.string   "note_ka"
   end
 
   create_table "docflow4", force: :cascade do |t|
@@ -163,6 +165,8 @@ ActiveRecord::Schema.define(version: 20170404072506) do
     t.string   "attach_4_1_filename"
     t.string   "attach_4_2_filename"
     t.string   "attach_4_3_filename"
+    t.datetime "deadline_to_response"
+    t.string   "compesation_amount"
   end
 
   create_table "docflow5", force: :cascade do |t|
@@ -190,6 +194,8 @@ ActiveRecord::Schema.define(version: 20170404072506) do
     t.string   "attach_5_1_filename"
     t.string   "attach_5_2_filename"
     t.string   "attach_5_3_filename"
+    t.datetime "deadline_to_response"
+    t.string   "compesation_amount"
   end
 
   create_table "docflow6", force: :cascade do |t|
@@ -218,6 +224,8 @@ ActiveRecord::Schema.define(version: 20170404072506) do
     t.string   "attach_6_1_filename"
     t.string   "attach_6_2_filename"
     t.string   "attach_6_3_filename"
+    t.datetime "deadline_to_response"
+    t.string   "compesation_amount"
   end
 
   create_table "docflow8", force: :cascade do |t|
@@ -245,6 +253,8 @@ ActiveRecord::Schema.define(version: 20170404072506) do
     t.string   "attach_8_1_filename"
     t.string   "attach_8_2_filename"
     t.string   "attach_8_3_filename"
+    t.datetime "deadline_to_response"
+    t.string   "compesation_amount"
   end
 
   create_table "incomplete", id: false, force: :cascade do |t|
@@ -293,6 +303,7 @@ ActiveRecord::Schema.define(version: 20170404072506) do
     t.string   "attach_7_2_filename"
     t.string   "attach_7_3_filename"
     t.string   "attach_7_4_filename"
+    t.datetime "deadline_to_response"
   end
 
   create_table "pallnedoutage2s", force: :cascade do |t|
