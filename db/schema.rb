@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511064911) do
+ActiveRecord::Schema.define(version: 20170513164901) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 20170511064911) do
     t.string   "the_amount_of_compensation"
     t.string   "note",                       limit: 100
     t.string   "note_ka"
+    t.datetime "deadline_to_response"
+    t.string   "compesation_amount"
   end
 
   create_table "docflow4", force: :cascade do |t|
