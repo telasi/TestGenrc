@@ -10,7 +10,7 @@ module Base
 	  end
 
 	  def update_deadline(param)
-	  	self.deadline_for_response = ( Date.parse param rescue nil )
+	  	self.deadline_for_response = ( DateTime.parse param rescue nil )
 	  end
   end
   
