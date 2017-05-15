@@ -42,6 +42,14 @@ class QueueProcessor
         item2.save
 
         Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: '12')
+      elsif result.key?('error') && result['error'] == "16"
+        obj.update_attributes!(response_id: result['id']) if ( result['id'].present? && obj.response_id.blank? )
+
+        item2=SendQueue.find_by(id: item.id)
+        item2.update(sent_at: Time.now)
+        item2.save
+
+        Log.create!(service: item.service, service_id: item.service_id, action: "send #{item.stage}", success: 1, error: '16')
       else
         raise Exception.new(result['message'])
       end
