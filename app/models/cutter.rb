@@ -19,7 +19,8 @@ class Cutter < ActiveRecord::Base
           arrear_time:        self.arrear_date.utc.strftime('%H:%M'),
           transaction_number: self.transaction_number }
       when 2
-        { transaction_number_2: self.transaction_number_2 }
+        { transaction_number_2: self.transaction_number_2,
+          comment:              self.note.try(:bs_str_to_ka).to_s }
       when 3
         { transaction_number_3:       self.transaction_number_3,
           the_amount_of_compensation: self.the_amount_of_compensation }
@@ -33,7 +34,7 @@ class Cutter < ActiveRecord::Base
   end
 
   def convert_ka
-    self.note_ka = self.note.bs_str_to_ka if self.note
+    self.note_ka = self.note.try(:bs_str_to_ka)
   end
 
 end
