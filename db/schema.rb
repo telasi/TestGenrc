@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513164901) do
+ActiveRecord::Schema.define(version: 20170517120457) do
 
   create_table "cr_outages", force: :cascade do |t|
     t.integer  "break_reason",                 precision: 38
@@ -137,8 +137,10 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "the_amount_of_compensation"
     t.string   "note",                       limit: 100
     t.string   "note_ka"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
     t.string   "compesation_amount"
+    t.integer  "acckey",                     limit: 8,   precision: 8
+    t.boolean  "mainaccount",                limit: nil
   end
 
   create_table "docflow4", force: :cascade do |t|
@@ -167,7 +169,7 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "attach_4_1_filename"
     t.string   "attach_4_2_filename"
     t.string   "attach_4_3_filename"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
     t.string   "compesation_amount"
   end
 
@@ -196,7 +198,7 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "attach_5_1_filename"
     t.string   "attach_5_2_filename"
     t.string   "attach_5_3_filename"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
     t.string   "compesation_amount"
   end
 
@@ -226,7 +228,7 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "attach_6_1_filename"
     t.string   "attach_6_2_filename"
     t.string   "attach_6_3_filename"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
     t.string   "compesation_amount"
   end
 
@@ -255,7 +257,7 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "attach_8_1_filename"
     t.string   "attach_8_2_filename"
     t.string   "attach_8_3_filename"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
     t.string   "compesation_amount"
   end
 
@@ -305,7 +307,7 @@ ActiveRecord::Schema.define(version: 20170513164901) do
     t.string   "attach_7_2_filename"
     t.string   "attach_7_3_filename"
     t.string   "attach_7_4_filename"
-    t.datetime "deadline_to_response"
+    t.datetime "deadline_for_response"
   end
 
   create_table "pallnedoutage2s", force: :cascade do |t|
